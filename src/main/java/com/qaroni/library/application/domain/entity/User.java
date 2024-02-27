@@ -1,4 +1,4 @@
-package com.qaroni.library.application.entity;
+package com.qaroni.library.application.domain.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

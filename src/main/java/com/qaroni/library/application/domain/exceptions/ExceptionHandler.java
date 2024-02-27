@@ -1,4 +1,4 @@
-package com.qaroni.library.application.exceptions;
+package com.qaroni.library.application.domain.exceptions;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

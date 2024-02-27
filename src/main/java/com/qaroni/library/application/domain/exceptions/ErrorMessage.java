@@ -1,4 +1,4 @@
-package com.qaroni.library.application.exceptions;
+package com.qaroni.library.application.domain.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

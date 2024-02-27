@@ -1,8 +1,9 @@
-package com.qaroni.library.application.controller;
+package com.qaroni.library.application.domain.controller;
 
-import com.qaroni.library.application.entity.Role;
-import com.qaroni.library.application.entity.User;
-import com.qaroni.library.application.service.UserService;
+import com.qaroni.library.application.domain.controller.UserController;
+import com.qaroni.library.application.domain.entity.Role;
+import com.qaroni.library.application.domain.entity.User;
+import com.qaroni.library.application.domain.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.qaroni.library.application.service;
+package com.qaroni.library.application.domain.service;
 
-import com.qaroni.library.application.entity.User;
+import com.qaroni.library.application.domain.entity.User;
 
 import java.util.List;
 

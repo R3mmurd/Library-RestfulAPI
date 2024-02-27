@@ -1,4 +1,4 @@
-package com.qaroni.library.application.exceptions;
+package com.qaroni.library.application.domain.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(Long id) {

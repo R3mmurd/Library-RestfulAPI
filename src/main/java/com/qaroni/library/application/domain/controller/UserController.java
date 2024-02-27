@@ -1,7 +1,7 @@
-package com.qaroni.library.application.controller;
+package com.qaroni.library.application.domain.controller;
 
-import com.qaroni.library.application.entity.User;
-import com.qaroni.library.application.service.UserService;
+import com.qaroni.library.application.domain.service.UserService;
+import com.qaroni.library.application.domain.entity.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

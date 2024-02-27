@@ -1,8 +1,8 @@
-package com.qaroni.library.application.service;
+package com.qaroni.library.application.domain.service;
 
-import com.qaroni.library.application.entity.User;
-import com.qaroni.library.application.exceptions.UserNotFoundException;
-import com.qaroni.library.application.repository.UserRepository;
+import com.qaroni.library.application.domain.entity.User;
+import com.qaroni.library.application.domain.exceptions.UserNotFoundException;
+import com.qaroni.library.application.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

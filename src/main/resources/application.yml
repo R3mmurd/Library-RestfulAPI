@@ -14,3 +14,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/library
     username: postgres
     password: postgres
+  library:
+    email-sending:
+      smpt:
+        host: localhost
+        port: 1025
+
