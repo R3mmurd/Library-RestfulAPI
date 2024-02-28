@@ -11,7 +11,7 @@ import java.util.Properties;
 public class EmailConfiguration {
 
     @Bean
-    public JavaMailSender getJavaMailSender() {
+    public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("localhost");
         mailSender.setPort(1025);
