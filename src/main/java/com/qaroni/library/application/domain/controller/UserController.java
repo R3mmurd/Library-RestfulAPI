@@ -4,6 +4,7 @@ import com.qaroni.library.application.domain.dto.LoginDto;
 import com.qaroni.library.application.domain.dto.SignUpDto;
 import com.qaroni.library.application.domain.repository.UserRepository;
 import com.qaroni.library.application.domain.entity.User;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,15 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, World!";
+    }
 
     @PostMapping("/login")
     public ResponseEntity<String> authenticateUser(@RequestBody LoginDto loginDto) {
@@ -34,19 +40,18 @@ public class UserController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>("User login successfully!", HttpStatus.OK);
     }
-
-    @PostMapping("/signup")
+        @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignUpDto signUpDto){
-        if (userRepository.existsByEmail(signUpDto.getEmail())){
-            return new ResponseEntity<>("Email is already exist!", HttpStatus.BAD_REQUEST);
-        }
-
-        User user = new User();
-        user.setFullName(signUpDto.getFullName());
-        user.setEmail(signUpDto.getEmail());
-        user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
-        user.setRole(signUpDto.getRole());
-        userRepository.save(user);
         return new ResponseEntity<>("User is registered successfully!", HttpStatus.OK);
+//        if (userRepository.existsByEmail(signUpDto.getEmail())) {
+//            return new ResponseEntity<>("Email is already exist!", HttpStatus.BAD_REQUEST);
+//        }
+//
+//            User user = new User();
+//            user.setFullName(signUpDto.getFullName());
+//            user.setEmail(signUpDto.getEmail());
+//            user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
+//            user.setRole(signUpDto.getRole());
+//            userRepository.save(user);
     }
 }
