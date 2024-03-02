@@ -15,11 +15,10 @@ import java.util.Map;
 
 @ControllerAdvice
 public class ExceptionHandler extends ResponseEntityExceptionHandler {
-    @org.springframework.web.bind.annotation.ExceptionHandler(UserNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    ResponseEntity<ErrorMessage> userNotFoundHandler(UserNotFoundException ex) {
-        ErrorMessage errorMessage = new ErrorMessage(HttpStatus.NOT_FOUND, ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+    @org.springframework.web.bind.annotation.ExceptionHandler(APIException.class)
+    ResponseEntity<ErrorMessage> apiException(APIException ex) {
+        ErrorMessage errorMessage = new ErrorMessage(ex.getHttpStatus(), ex.getMessage());
+        return ResponseEntity.status(ex.getHttpStatus()).body(errorMessage);
     }
 
     @Override

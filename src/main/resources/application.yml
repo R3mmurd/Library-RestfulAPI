@@ -11,9 +11,31 @@ spring:
     init:
       platform: postgres
   datasource:
-    url: jdbc:postgresql://localhost:5432/library
-    username: postgres
-    password: postgres
+    url: 'jdbc:postgresql://localhost:5432/library'
+    username: 'postgres'
+    password: 'postgres'
   mail:
-    host: localhost
+    host: 'localhost'
     port: 1025
+    email-from: 'library@qaroni.com'
+    password: '12345'
+    transport-protocol: 'smtp'
+    smtp-auth: true
+    smtp-starttls-enable: true
+    debug: true
+
+springdoc:
+  swagger-ui:
+    path: '/api/docs-ui/index.html'
+    configUrl: '/swagger-config.json'
+  openapi:
+    server:
+      url: 'http//localhost:8085'
+      description: 'Library API Documentation'
+    contact:
+      name: 'Alejandro Mujica'
+      email: 'alejandro.j.mujic4@gmail.com'
+    info:
+      title: 'Library Management System API'
+      version: '1.0'
+      description: 'This API exposes endpoints to manage authors and books.'

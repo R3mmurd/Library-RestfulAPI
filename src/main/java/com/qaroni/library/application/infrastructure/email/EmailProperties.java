@@ -1,17 +1,19 @@
 package com.qaroni.library.application.infrastructure.email;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
-@ConfigurationProperties(prefix = "spring.library.email-sending")
+@Component
+@ConfigurationProperties(prefix = "spring.mail")
+@Data
 public class EmailProperties {
     private String host;
     private int port;
-
-    public String getHost() {
-        return host;
-    }
-
-    public int getPort() {
-        return port;
-    }
+    private String emailFrom;
+    private String password;
+    private String transportProtocol;
+    private boolean smtpAuth;
+    private boolean smtpStarttlsEnable;
+    private boolean debug;
 }

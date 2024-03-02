@@ -1,5 +1,7 @@
 package com.qaroni.library.application.infrastructure.email;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,20 +12,22 @@ import java.util.Properties;
 @Configuration
 public class EmailConfiguration {
 
+    @Autowired
+    private EmailProperties emailProperties;
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("localhost");
-        mailSender.setPort(1025);
+        mailSender.setHost(emailProperties.getHost());
+        mailSender.setPort(emailProperties.getPort());
 
-        mailSender.setUsername("library@qaroni.com");
-        mailSender.setPassword("12345");
+        mailSender.setUsername(emailProperties.getEmailFrom());
+        mailSender.setPassword(emailProperties.getPassword());
 
         Properties props = mailSender.getJavaMailProperties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.debug", "true");
+        props.put("mail.transport.protocol", emailProperties.getTransportProtocol());
+        props.put("mail.smtp.auth", emailProperties.isSmtpAuth());
+        props.put("mail.smtp.starttls.enable", emailProperties.isSmtpStarttlsEnable());
+        props.put("mail.debug", emailProperties.isDebug());
 
         return mailSender;
     }

@@ -1,7 +1,6 @@
 package com.qaroni.library.application.domain.service;
 
 import com.qaroni.library.application.domain.entity.User;
-import com.qaroni.library.application.domain.exceptions.UserNotFoundException;
 import com.qaroni.library.application.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service

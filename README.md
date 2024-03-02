@@ -1,1 +1,8 @@
-# Library Restful API
+# Library REST API
+
+## Setup
+
+- Clone this repository:
+  ```bash
+  
+  ```
